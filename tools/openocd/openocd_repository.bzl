@@ -1,19 +1,19 @@
 def _get_platform_specific_config(os_name):
     _WINDOWS = {
-        "sha256": "b195e3c3e9fe3f4fe9dfd9780ff08336ef8ed3015a76cc883d9e21e57c456f33",
-        "prefix": "",
-        "url": "https://github.com/ntfreak/openocd/releases/download/v0.11.0/openocd-v0.11.0-i686-w64-mingw32.tar.gz",
+        "sha256": "ec37f535265ce93953a874b10d07e8578f9814c206d8bce6a241ba7016297e4f",
+        "prefix": "xpack-openocd-0.11.0-1",
+        "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-1/xpack-openocd-0.11.0-1-win32-x64.zip",
     }
     _PLATFORM_SPECIFIC_CONFIGS = {
         "mac os x": {
-            "sha256": "30917a5c6f60fcd7df82b41dcec8ab7d86f0cea3caeaf98b965b901c10a60b39",
-            "prefix": "xpack-openocd-0.10.0-14",
-            "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.10.0-14/xpack-openocd-0.10.0-14-darwin-x64.tar.gz",
+            "sha256": "3e3719fd059d87f3433f1f6d8e37b8582e87ae6a168287eb32a85dbc0f2e1708",
+            "prefix": "xpack-openocd-0.11.0-1",
+            "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-1/xpack-openocd-0.11.0-1-darwin-x64.tar.gz",
         },
         "linux": {
-            "sha256": "185c070f9729cf38dca08686c2905561c07a63c563e5bc7a70e045f2a1865c11",
-            "prefix": "xpack-openocd-0.10.0-14",
-            "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.10.0-14/xpack-openocd-0.10.0-14-linux-x64.tar.gz",
+            "sha256": "5972fe70a274f054503dd519b68d3909b83f017b5b8dd2b59e84b3b72c9bc3e1",
+            "prefix": "xpack-openocd-0.11.0-1",
+            "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.11.0-1/xpack-openocd-0.11.0-1-linux-x64.tar.gz",
         },
         "windows": _WINDOWS,
         "windows server 2019": _WINDOWS,
@@ -45,8 +45,8 @@ def _openocd_repository_impl(repository_ctx):
     executable_extension = ""
     if "windows" in repository_ctx.os.name:
         executable_extension = ".exe"
-
     repository_ctx.symlink("bin/openocd"+ executable_extension, "openocd" )
+    
     repository_ctx.file(
         "BUILD",
         content = """
