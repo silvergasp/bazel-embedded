@@ -302,7 +302,7 @@ def gcc_arm_none_toolchain(name, compiler_components, architecture, float_abi, e
         strip_files = compiler_components,
         as_files = compiler_components,
         ar_files = compiler_components,
-        supports_param_files = 0,
+        supports_param_files = 1,
         toolchain_config = ":" + toolchain_config,
         toolchain_identifier = "arm-none-eabi",
     )
